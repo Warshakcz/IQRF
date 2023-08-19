@@ -1,0 +1,58 @@
+1. Podle verze OS na raspberry:
+
+Pro OS 10 Buster:
+sudo apt-get install dirmngr curl
+sudo curl -sSLo /usr/share/keyrings/iqrf.gpg https://repos.iqrf.org/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/iqrf.gpg] https://repos.iqrf.org/raspbian buster stable" | sudo tee /etc/apt/sources.list.d/iqrf.list
+sudo curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ buster main" | sudo tee /etc/apt/sources.list.d/php.list
+sudo apt-get update
+
+Pro OS 11 Bullseye:
+sudo apt-get install dirmngr curl
+sudo curl -sSLo /usr/share/keyrings/iqrf.gpg https://repos.iqrf.org/apt.gpg
+echo "deb [signed-by=/usr/share/keyrings/iqrf.gpg] https://repos.iqrf.org/raspbian bullseye stable" | sudo tee /etc/apt/sources.list.d/iqrf.list
+sudo apt-get update
+
+
+
+2. Instalace Daemona:
+sudo apt-get install iqrf-gateway-daemon
+
+3. Instalace aktualizací:
+sudo apt-get update && sudo apt-get -y full-upgrade
+
+
+
+4. Instalace PHP:
+sudo apt-get -y install apt-transport-https lsb-release ca-certificates
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+sudo sh -c 'echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list'
+sudo apt-get update
+
+
+
+5. Povolení SPI
+sudo nano /boot/config.txt
+Najdeme dtparam=spi=on a odstraníme # na začátku
+Zmáčkneme CTRL + X a uložíme soubor
+sudo reboot
+
+
+
+6. Instalace IQRF Gateway webapp:
+sudo apt-get install iqrf-gateway-webapp
+
+
+
+7. Instalace MQTT
+sudo apt-get install -y mosquitto mosquitto-clients
+
+
+
+8. Instalace GITu
+sudo apt-get install git
+
+
+Dále pokračujeme od bodu 6B na této stránce:
+https://github.com/iqrfsdk/iot-starter-kit/blob/master/install/rpi-board/GW-SbS-INSTALL.md
