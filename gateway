@@ -56,3 +56,12 @@ sudo apt-get install git
 
 Dále pokračujeme od bodu 6B na této stránce:
 https://github.com/iqrfsdk/iot-starter-kit/blob/master/install/rpi-board/GW-SbS-INSTALL.md
+
+7A configuration - interfaces
+
+7B gateway - IQRF service - daemon - restart
+
+9B localhost:1880
+
+
+
